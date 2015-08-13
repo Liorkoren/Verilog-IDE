@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+AutoUpdate-Show-In-Client: true
+OpenIDE-Module: org.netbeans.brandingmodule
+OpenIDE-Module-Layer: org/netbeans/brandingmodule/layer.xml
+OpenIDE-Module-Localizing-Bundle: org/netbeans/brandingmodule/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+OpenIDE-Module-Module-Dependencies: org.openide.awt > 7.2.1

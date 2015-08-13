@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.1//EN" "https://netbeans.org/dtds/filesystem-1_1.dtd">
+<filesystem>
+
+    <folder name="Actions">
+        <folder name="Project">
+            <file name="org-netbeans-modules-project-ui-JavadocProject.instance_hidden"/>
+        </folder>
+    </folder>
+    <folder name="Loaders">
+        <folder name="Languages">
+            <folder name="Actions"/>
+        </folder>
+        <folder name="application">
+            <folder name="pdf">
+                <folder name="Actions"/>
+                <folder name="Factories"/>
+            </folder>
+            <folder name="x-nbsettings">
+                <folder name="Actions"/>
+            </folder>
+            <folder name="xml">
+                <folder name="Factories"/>
+            </folder>
+        </folder>
+        <folder name="content">
+            <folder name="unknown">
+                <folder name="Actions"/>
+            </folder>
+        </folder>
+        <folder name="folder">
+            <folder name="any">
+                <folder name="Actions">
+                    <file name="FileSystemAction.shadow_hidden"/>
+                    <file name="Separator3.instance_hidden"/>
+                </folder>
+            </folder>
+        </folder>
+        <folder name="text">
+            <folder name="x-v">
+                <folder name="Actions"/>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <file name="BuildProject_hidden"/>
+        <folder name="Edit">
+            <file name="WhereUsedAction.shadow_hidden"/>
+        </folder>
+        <folder name="File">
+            <file name="Export_hidden"/>
+            <file name="Import_hidden"/>
+            <file name="Separator2.instance_hidden"/>
+            <file name="Separator4.instance_hidden"/>
+            <file name="org-netbeans-modules-editor-ExportHtmlAction.shadow_hidden"/>
+            <file name="org-netbeans-modules-print-action-PageSetupAction.shadow_hidden"/>
+            <file name="org-netbeans-modules-print-action-PrintAction.shadow_hidden"/>
+            <file name="org-netbeans-modules-project-ui-groups-GroupsMenu.shadow_hidden"/>
+        </folder>
+        <folder name="GoTo"/>
+        <folder name="Help">
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.core.ui.resources.Bundle"/>
+            <attr name="position" intvalue="1300"/>
+            <file name="Separator1.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="500"/>
+            </file>
+            <file name="netbeans-kb.url" url="netbeans-kb.url">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.url.Bundle"/>
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="org-netbeans-core-actions-AboutAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Help/org-netbeans-core-actions-AboutAction.instance"/>
+                <attr name="position" intvalue="1500"/>
+            </file>
+            <file name="org-netbeans-modules-autoupdate-ui-actions-CheckForUpdatesAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/System/org-netbeans-modules-autoupdate-ui-actions-CheckForUpdatesAction.instance"/>
+                <attr name="position" intvalue="1300"/>
+            </file>
+            <file name="org-netbeans-modules-usersguide-master.xml" url="org-netbeans-modules-usersguide-master.xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.usersguide.Bundle"/>
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="shortcuts.xml" url="shortcuts.xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.modules.url.Bundle"/>
+                <attr name="position" intvalue="400"/>
+            </file>
+        </folder>
+        <folder name="Refactoring"/>
+        <file name="RunProject_hidden"/>
+        <folder name="Source"/>
+        <file name="Tools_hidden"/>
+        <file name="Versioning_hidden"/>
+        <folder name="View">
+            <file name="org-netbeans-modules-versioning-core-ShowTextAnnotationsAction.shadow_hidden"/>
+        </folder>
+        <folder name="Window">
+            <folder name="ConfigureWindow">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.netbeans.core.windows.resources.Bundle"/>
+                <attr name="position" intvalue="20100"/>
+                <file name="CloneDocumentAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-CloneDocumentAction.instance"/>
+                    <attr name="position" intvalue="900"/>
+                </file>
+                <file name="CollapseDocumentTabGroupAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-CollapseTabGroupAction.instance"/>
+                    <attr name="position" intvalue="1100"/>
+                </file>
+                <file name="MaximizeWindowAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-MaximizeWindowAction.instance"/>
+                    <attr name="position" intvalue="100"/>
+                </file>
+                <file name="NewDocumentTabGroupAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-NewTabGroupAction.instance"/>
+                    <attr name="position" intvalue="1000"/>
+                </file>
+                <file name="Separator1.instance">
+                    <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                    <attr name="position" intvalue="800"/>
+                </file>
+                <file name="org-netbeans-core-multiview-SplitAction.instance">
+                    <attr name="displayName" stringvalue="\u0026Split Document"/>
+                    <attr name="instanceCreate" methodvalue="org.netbeans.core.multiview.SplitAction.createSplitAction"/>
+                    <attr name="misplaced.action.allowed" boolvalue="true"/>
+                    <attr name="position" intvalue="950"/>
+                </file>
+                <file name="org-netbeans-core-windows-actions-DockModeAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-DockModeAction.instance"/>
+                    <attr name="position" intvalue="700"/>
+                </file>
+                <file name="org-netbeans-core-windows-actions-DockWindowAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-DockWindowAction.instance"/>
+                    <attr name="position" intvalue="600"/>
+                </file>
+                <file name="org-netbeans-core-windows-actions-MinimizeModeAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-MinimizeModeAction.instance"/>
+                    <attr name="position" intvalue="500"/>
+                </file>
+                <file name="org-netbeans-core-windows-actions-MinimizeWindowAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-MinimizeWindowAction.instance"/>
+                    <attr name="position" intvalue="400"/>
+                </file>
+                <file name="org-netbeans-core-windows-actions-UndockAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-UndockWindowAction.instance"/>
+                    <attr name="position" intvalue="200"/>
+                </file>
+                <file name="org-netbeans-core-windows-actions-UndockModeAction.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-windows-actions-UndockModeAction.instance"/>
+                    <attr name="position" intvalue="300"/>
+                </file>
+            </folder>
+            <file name="Tools_hidden"/>
+            <folder name="Web">
+                <file name="org-netbeans-modules-css-visual-api-CssStylesTC-OpenAction.shadow_hidden"/>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Projects">
+        <folder name="Actions"/>
+    </folder>
+    <folder name="ProjectsTabActions"/>
+    <folder name="Toolbars">
+        <folder name="Clipboard"/>
+        <folder name="File"/>
+        <folder name="UndoRedo"/>
+    </folder>
+</filesystem>
