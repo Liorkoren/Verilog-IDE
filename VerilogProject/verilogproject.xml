@@ -1,0 +1,4 @@
+<project name="test" default="all" basedir=".">
+    <target name="init">
+    </target>
+</project>
