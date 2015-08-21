@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See harness/README in the NetBeans platform -->
+<!-- for some information on what you could do (e.g. targets to override). -->
+<!-- If you delete this file and reopen the project it will be recreated. -->
+<project name="com.koltem.filetype.verilog" default="netbeans" basedir=".">
+    <description>Builds, tests, and runs the project com.koltem.filetype.verilog.</description>
+    <import file="nbproject/build-impl.xml"/>
+    
+    <target name="build-init" depends="antlr,harness.build-init"/>
+    
+    <target name="-pre-compile" depends="antlr">
+    </target>
+ 
+    <target name="init-antlr">
+        <!-- Full path to Antlr jar -->
+        <property name="antlr.jar" location="/home/ranga/progfiles/antlr-4.5-complete.jar"/>
+        <!-- Grammar path -->
+        <property name="antlr.grammar" location="src/com/koltem/filetype/verilog/antlr/Verilog2001.g4"/>
+    </target>
+    
+    <target name="antlr" depends="init-antlr" unless="up-to-date">
+        <!-- Compiling grammar -->
+        <java classname="org.antlr.v4.Tool"  fork="true">
+            <arg value="${antlr.grammar}"/>
+            <classpath path="${antlr.jar}"/>
+        </java>        
+    </target>        
+    
+
+</project>
