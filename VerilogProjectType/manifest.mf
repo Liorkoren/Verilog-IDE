@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
 AutoUpdate-Show-In-Client: true
 OpenIDE-Module: com.koltem.verilogprojecttype
-OpenIDE-Module-Layer: com/koltem/verilogprojecttype/layer.xml
 OpenIDE-Module-Localizing-Bundle: com/koltem/verilogprojecttype/Bundle.properties
 OpenIDE-Module-Specification-Version: 1.0
 
