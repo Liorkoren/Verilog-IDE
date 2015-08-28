@@ -4,7 +4,8 @@ import javax.swing.text.BadLocationException;
 import org.netbeans.modules.editor.indent.spi.Context;
 import org.netbeans.modules.editor.indent.spi.ExtraLock;
 import org.netbeans.modules.editor.indent.spi.IndentTask;
-import org.openide.awt.StatusDisplayer;
+import org.netbeans.modules.editor.indent.spi.CodeStylePreferences;
+import org.netbeans.api.editor.settings.SimpleValueNames;
 
 /**
  *
@@ -12,8 +13,6 @@ import org.openide.awt.StatusDisplayer;
  */
 public class VerilogIndentTask implements IndentTask
 {
-    private static final int INDENT_SIZE = 2;
-    
     private Context context;
 
     public VerilogIndentTask(Context context)
@@ -49,7 +48,7 @@ public class VerilogIndentTask implements IndentTask
                     || prevLineContent.startsWith("for")
                     || prevLineContent.startsWith("initial")
                     || prevLineContent.endsWith("begin")) {
-                context.modifyIndent(curLineStart , prevLineIndent + INDENT_SIZE);
+                context.modifyIndent(curLineStart , prevLineIndent + Util.getIndentSize(context.document()));
             }
             //otherwise, maintain the previous line's indent
             else {
