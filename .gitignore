@@ -5,3 +5,6 @@
 /VerilogFileType/build/
 /VerilogProjectType/build/
 /VerilogIDE/BrandingModule/build/
+VerilogFileType/nbproject/private/private.xml
+VerilogIDE/BrandingModule/nbproject/private/private.xml
+VerilogProjectType/nbproject/private/private.xml

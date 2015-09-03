@@ -24,7 +24,7 @@ import org.openide.util.NbBundle.Messages;
 @ActionRegistration(
         displayName = "#CTL_StartAnalyzerActionListener"
 )
-@ActionReference(path = "Loaders/text/x-v/Actions", position = 0)
+@ActionReference(path = "Loaders/text/x-v/Actions", position = 150)
 @Messages("CTL_StartAnalyzerActionListener=Start Analyzer")
 public final class StartAnalyzerActionListener implements ActionListener {
 
@@ -38,8 +38,8 @@ public final class StartAnalyzerActionListener implements ActionListener {
     public void actionPerformed(ActionEvent ev) {
         FileObject f = context.getPrimaryFile();
         String displayName = FileUtil.getFileDisplayName(f);
-        String msg = "I am " + displayName + ". Hear me roar!";
-        msg += System.lineSeparator() + "Module N7ame : ";
+        String msg = "";
+        msg += System.lineSeparator() + "File Name : ";
         msg += searchUsingBufferedReader(displayName, "module");
         NotifyDescriptor nd = new NotifyDescriptor.Message(msg);
         DialogDisplayer.getDefault().notify(nd);
