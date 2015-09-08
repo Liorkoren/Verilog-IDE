@@ -18,6 +18,9 @@ import org.netbeans.modules.parsing.api.Task;
 import org.netbeans.modules.parsing.spi.ParseException;
 import org.netbeans.modules.parsing.spi.Parser;
 import org.netbeans.modules.parsing.spi.SourceModificationEvent;
+import org.openide.windows.IOProvider;
+import org.openide.windows.InputOutput;
+import org.openide.windows.OutputWriter;
 
 /**
  *
@@ -26,13 +29,22 @@ import org.netbeans.modules.parsing.spi.SourceModificationEvent;
 public class VerilogParser extends Parser {
 
     private Snapshot snapshot;
+
     private Verilog2001Parser verilogParser;
 
     private List<SyntaxError> syntaxErrors;
 
+    static private OutputWriter writer;
+
+    VerilogParser() {
+        InputOutput io = IOProvider.getDefault().getIO("Errors", false);
+        writer = io.getOut();
+    }
+
     @Override
     public void parse(Snapshot snapshot, Task task, SourceModificationEvent event) {
         this.snapshot = snapshot;
+
         //ANTLRStringStream input = new ANTLRStringStream(snapshot.getText().toString());
         ANTLRInputStream input = new ANTLRInputStream(snapshot.getText().toString());
         Lexer lexer = new Verilog2001Lexer(input);
@@ -44,14 +56,15 @@ public class VerilogParser extends Parser {
         VerilogContextTreeListener contextTreeListener = new VerilogContextTreeListener(verilogParser);
         verilogParser.removeErrorListeners();
         verilogParser.addParseListener(contextTreeListener);
+        //IOProvider.getDefault().getIO("Errors", false).setErrVisible(true);
         verilogParser.addErrorListener(new BaseErrorListener() {
             @Override
             public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol,
                     int line, int charPositionInLine,
                     String msg, RecognitionException e) {
-                System.err.println("line " + line + ":" + charPositionInLine + " " + msg);
-                underlineError(recognizer, (Token) offendingSymbol,
-                        line, charPositionInLine);
+                underlineError(recognizer, (Token) offendingSymbol, line, charPositionInLine);
+                writer.println("line " + line + ":" + charPositionInLine + " " + msg);
+                writer.println("");
                 syntaxErrors.add(new SyntaxError(line, charPositionInLine, msg, e));
             }
 
@@ -63,23 +76,26 @@ public class VerilogParser extends Parser {
                 String input = tokens.getTokenSource().getInputStream().toString();
                 String[] lines = input.split("\n");
                 String errorLine = lines[line - 1];
-                System.err.println(errorLine);
+                writer.println(errorLine);
                 for (int i = 0; i < charPositionInLine; i++) {
-                    System.err.print(" ");
+                    writer.print(" ");
                 }
                 int start = offendingToken.getStartIndex();
                 int stop = offendingToken.getStopIndex();
                 if (start >= 0 && stop >= 0) {
                     for (int i = start; i <= stop; i++) {
-                        System.err.print("^");
+                        writer.print("^");
                     }
                 }
-                System.err.println();
+                writer.println("");
             }
 
         });
         try {
             verilogParser.description();
+            writer.println(syntaxErrors.size() + " Errors Detected");
+            writer.println("------------------------");
+            writer.flush();
             System.out.println("Done Parsing");
             syntaxErrors.addAll(contextTreeListener.getSyntaxErrors());
             System.out.println("Done Adding Context Tree Syntax Errors");
