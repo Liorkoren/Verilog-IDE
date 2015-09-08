@@ -11,6 +11,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.Token;
 import org.netbeans.modules.csl.api.Error;
 import org.netbeans.modules.parsing.api.Snapshot;
 import org.netbeans.modules.parsing.api.Task;
@@ -41,14 +42,41 @@ public class VerilogParser extends Parser {
         syntaxErrors = new ArrayList<>();
 //        verilogParser.addErrorListener(new VerilogErrorListener());
         VerilogContextTreeListener contextTreeListener = new VerilogContextTreeListener(verilogParser);
+        verilogParser.removeErrorListeners();
         verilogParser.addParseListener(contextTreeListener);
         verilogParser.addErrorListener(new BaseErrorListener() {
             @Override
             public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol,
                     int line, int charPositionInLine,
                     String msg, RecognitionException e) {
+                System.err.println("line " + line + ":" + charPositionInLine + " " + msg);
+                underlineError(recognizer, (Token) offendingSymbol,
+                        line, charPositionInLine);
                 syntaxErrors.add(new SyntaxError(line, charPositionInLine, msg, e));
             }
+
+            protected void underlineError(Recognizer recognizer,
+                    Token offendingToken, int line,
+                    int charPositionInLine) {
+                CommonTokenStream tokens
+                        = (CommonTokenStream) recognizer.getInputStream();
+                String input = tokens.getTokenSource().getInputStream().toString();
+                String[] lines = input.split("\n");
+                String errorLine = lines[line - 1];
+                System.err.println(errorLine);
+                for (int i = 0; i < charPositionInLine; i++) {
+                    System.err.print(" ");
+                }
+                int start = offendingToken.getStartIndex();
+                int stop = offendingToken.getStopIndex();
+                if (start >= 0 && stop >= 0) {
+                    for (int i = start; i <= stop; i++) {
+                        System.err.print("^");
+                    }
+                }
+                System.err.println();
+            }
+
         });
         try {
             verilogParser.description();
