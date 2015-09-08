@@ -18,7 +18,12 @@ module (clk, reset, din, dout );
   // Continuos assignments
   assign dtmp = ~din;
 
-  // Procedural logic
+  // Combinaturial logic
+  always @(dtmp) begin
+    dout = dtmp;
+  end
+
+  // Sequential logic
   always @(posedge clk or negedge reset) begin
     dout <= dtmp;
   end
