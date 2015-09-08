@@ -2,7 +2,8 @@ package com.koltem.filetype.verilog.editor;
 
 import com.koltem.filetype.verilog.antlr.Verilog2001Lexer;
 import org.antlr.v4.runtime.Token;
-import org.netbeans.spi.lexer.*;
+import org.netbeans.spi.lexer.Lexer;
+import org.netbeans.spi.lexer.LexerRestartInfo;
 
 /**
  *

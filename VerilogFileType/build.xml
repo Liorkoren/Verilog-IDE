@@ -13,7 +13,7 @@
  
     <target name="init-antlr">
         <!-- Full path to Antlr jar -->
-        <property name="antlr.jar" location="/home/ranga/progfiles/antlr-4.5-complete.jar"/>
+        <property name="antlr.jar" location="src/com/koltem/filetype/verilog/antlr/antlr-4.5-complete.jar"/>
         <!-- Grammar path -->
         <property name="antlr.grammar" location="src/com/koltem/filetype/verilog/antlr/Verilog2001.g4"/>
     </target>

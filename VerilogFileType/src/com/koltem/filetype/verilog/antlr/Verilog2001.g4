@@ -34,9 +34,15 @@
 
 grammar Verilog2001;
 
-@header {
+@lexer::header {
 package com.koltem.filetype.verilog.antlr;
+}
 
+@parser::header {
+package com.koltem.filetype.verilog.antlr;
+}
+
+@parser::members {
 }
 // 1 Source text
 // 1.1 Library source text
@@ -94,6 +100,14 @@ module_declaration
             ( module_parameter_port_list )? ( list_of_port_declarations )? ';'
             non_port_module_item*
         'endmodule'
+	|	attribute_instance* module_keyword /* Expecting module_identifier*/
+            ( module_parameter_port_list )? ( list_of_port_declarations )? ';'
+            non_port_module_item*
+        'endmodule'
+	|	attribute_instance* module_keyword module_identifier
+            ( module_parameter_port_list )? ( list_of_port_declarations )? ';'
+            non_port_module_item*
+        /* Expecting 'endmodule'*/
 	;
 
 module_keyword : 'module' | 'macromodule' ;
@@ -343,7 +357,11 @@ list_of_variable_port_identifiers : port_identifier ( '=' constant_expression )?
 // 2.4 Declaration assignments
 
 net_decl_assignment : net_identifier '=' expression ;
-param_assignment : parameter_identifier '=' constant_expression ;
+param_assignment : parameter_identifier '=' constant_expression 
+                 | parameter_identifier '=' /* Expecting constant_expression*/
+                 | parameter_identifier /* Expecting default parameter*/
+;
+
 specparam_assignment : specparam_identifier '=' constant_mintypmax_expression
 | pulse_control_specparam
 ;

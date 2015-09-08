@@ -1,7 +1,5 @@
-// Generated from /home/ranga/MyPrograms/Freelancing/Lior/Verilog-IDE/VerilogFileType/src/com/koltem/filetype/verilog/antlr/Verilog2001.g4 by ANTLR 4.5
 
 package com.koltem.filetype.verilog.antlr;
-
 
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
