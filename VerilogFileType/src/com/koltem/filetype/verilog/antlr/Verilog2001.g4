@@ -100,7 +100,7 @@ module_declaration
             ( module_parameter_port_list )? ( list_of_port_declarations )? ';'
             non_port_module_item*
         'endmodule'
-	|	attribute_instance* module_keyword /* Expecting module_identifier*/
+	|	attribute_instance* module_keyword {notifyErrorListeners("Expecting module_identifier");}
             ( module_parameter_port_list )? ( list_of_port_declarations )? ';'
             non_port_module_item*
         'endmodule'
